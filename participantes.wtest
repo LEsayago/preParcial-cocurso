@@ -18,8 +18,8 @@ test "Morat ocupación inicial" {
 
 test "Morat practicar elimina nombres con mas de 5 letras" {
   morat.practicar()
-  assert.equals(4, morat.ocupacionDelEscenario())    // queda juan (4) 
-  assert.equals(2, morat.calidadMusical())           // 2 * cantidad integrantes (2)
+  assert.equals(14, morat.ocupacionDelEscenario())    // sale martín (6) 
+  assert.equals(6, morat.calidadMusical())           // 2 * cantidad integrantes (3)
 }
 
 test "Silvio ocupación y calidad" {

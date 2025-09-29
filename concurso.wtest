@@ -14,8 +14,7 @@ test "Entrenar a todos" {
   concurso.inscribir(morat)
   concurso.entrenarATodos()
   assert.equals(20, taylor.ocupacionDelEscenario())   // Taylor duplicó costo de banda
-  // no resolvi el problema de morat
- // assert.equals(9, morat.ocupacionDelEscenario())     // Morat eliminó integrantes largos
+  assert.equals(14, morat.ocupacionDelEscenario())     // Morat eliminó a Martin de la banda
 }
 
 test "Ganador inicial" {

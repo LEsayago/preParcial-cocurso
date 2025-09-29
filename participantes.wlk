@@ -29,7 +29,9 @@ object morat{
     method calidadMusical()= 2 * integrantes.size()
 
     method practicar(){
-        integrantes.remove({i => i.size() > 4})
+        var saleDeLaBanda = integrantes.filter({ i => i.length() > 5 })
+        integrantes.removeAll(saleDeLaBanda)
+       
     }      
 }
 
