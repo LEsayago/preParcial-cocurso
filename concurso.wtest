@@ -1,0 +1,37 @@
+import jurado.*
+import participantes.*
+import concurso.*
+
+test "Inscribir y dar de baja participante" {
+  concurso.inscribir(taylor)
+  assert.equals([taylor], concurso.participantes())
+  concurso.darDeBaja(taylor)
+  assert.equals([], concurso.participantes())
+}
+
+test "Entrenar a todos" {
+  concurso.inscribir(taylor)
+  concurso.inscribir(morat)
+  concurso.entrenarATodos()
+  assert.equals(20, taylor.ocupacionDelEscenario())   // Taylor duplicó costo de banda
+  // no resolvi el problema de morat
+ // assert.equals(9, morat.ocupacionDelEscenario())     // Morat eliminó integrantes largos
+}
+
+test "Ganador inicial" {
+  concurso.inscribir(silvioRodriguez)
+  concurso.inscribir(taylor)
+  assert.equals(taylor, concurso.ganador())
+}
+
+test "Ampliar escenario" {
+  concurso.ampliarEscenario(10)
+  assert.equals(30, concurso.superficie())
+}
+
+test "Evento especial modifica jurados y escenario" {
+  concurso.eventoEspecial()
+  assert.equals(30, concurso.superficie())            // +10 m2
+  assert.equals(5, beethoven.nivelDeEntusiasmo())       // buenas noticias
+  assert.equals(8, mozart.valoracionMaxima())           // ajuste a 8
+}

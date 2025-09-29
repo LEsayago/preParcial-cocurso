@@ -1,0 +1,40 @@
+import participantes.*
+
+test "Taylor ocupación y calidad inicial" {
+  assert.equals(10, taylor.ocupacionDelEscenario())  // 10 * costoDeBanda (1)
+  assert.equals(6, taylor.calidadMusical())          // 5 + 1
+}
+
+test "Taylor practicar duplica costo de banda" {
+  taylor.practicar()
+  assert.equals(20, taylor.ocupacionDelEscenario())  // 10 * 2
+  assert.equals(7, taylor.calidadMusical())          // 5 + 2
+}
+
+test "Morat ocupación inicial" {
+  assert.equals(20, morat.ocupacionDelEscenario())   // sumatoria tamaños nombres
+  assert.equals(8, morat.calidadMusical())           // 2 * cantidad integrantes (4)
+}
+
+test "Morat practicar elimina nombres con mas de 5 letras" {
+  morat.practicar()
+  assert.equals(4, morat.ocupacionDelEscenario())    // queda juan (4) 
+  assert.equals(2, morat.calidadMusical())           // 2 * cantidad integrantes (2)
+}
+
+test "Silvio ocupación y calidad" {
+  assert.equals(1, silvioRodriguez.ocupacionDelEscenario())
+  assert.equals(10, silvioRodriguez.calidadMusical())
+}
+
+test "Bad Bunny ocupación y calidad inicial" {
+  assert.equals(9, badBunny.ocupacionDelEscenario())  // 1 + 8 bailarinas
+  assert.equals(10, badBunny.calidadMusical())        // 10 - autotune inicial
+}
+
+test "Bad Bunny practicar reduce autotune" {
+  badBunny.aumentarAutotune(5)
+  assert.equals(5, badBunny.calidadMusical())         // 10 - 5
+  badBunny.practicar()
+  assert.equals(6, badBunny.calidadMusical())         // autotune baja a 4
+}

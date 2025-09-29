@@ -1,0 +1,25 @@
+import jurado.*
+import participantes.*
+import concurso.*
+
+test "Mozart evalúa con máximo 10" {
+  assert.equals(10, mozart.evaluarParticipante(silvioRodriguez, concurso))
+}
+
+test "Mozart cambia valor máximo a 8" {
+  mozart.cambiarAnimo()
+  assert.equals(8, mozart.evaluarParticipante(silvioRodriguez, concurso))
+}
+
+test "Beethoven evalúa enojado" {
+// silvio rodriguez ocupación 1 m2 → 5% del escenario → 0.5 + bonus 1 = 1.5
+  assert.equals( (1.5) , beethoven.evaluarParticipante(silvioRodriguez, concurso))
+
+}
+
+test "Beethoven buenas noticias pasa a entusiasmo 5" {
+  beethoven.buenasNoticias()
+  // ahora no está enojado y tiene entusiasmo 5 
+  // 5.5 silvio rodriguez
+  assert.equals( ( 5.5) , beethoven.evaluarParticipante(silvioRodriguez, concurso))
+}
